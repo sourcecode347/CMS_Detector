@@ -141,20 +141,17 @@ def detect_cms(url):
 
         detected = []
 
-        # Έλεγχος signatures
         for cms, signatures in CMS_SIGNATURES.items():
             for sig in signatures:
                 if re.search(sig.lower(), content):
                     detected.append(cms)
                     break
 
-        # Ειδικοί έλεγχοι
         if 'wordpress' in content or '/wp-' in content:
             detected.append("WordPress")
         if 'wp-content' in content:
             detected.append("WordPress")
 
-        # Αφαίρεση διπλοτύπων
         detected = list(dict.fromkeys(detected))
 
         if detected:
