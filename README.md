@@ -7,3 +7,4 @@ A Simple CMS Detector Python Script
 
 # Execute
     python cmsdetector.py
+    python cmsdetector.py example.com
